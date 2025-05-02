@@ -32,7 +32,7 @@
 <body>
 
 <header>
-    <h1>Supplier Loss Prediction Model</h1>
+    <h1>Supplier Loss Prediction Model -- Group 9 </h1>
     <p>Machine-learning-based early warning system for supplier churn &nbsp;|&nbsp; AUC 1.00 · 99 % Recall · SHAP-driven insights</p>
     <a class="btn" href="Supplier_Loss_Report.pdf" target="_blank">Download PDF Report</a>
 </header>
@@ -40,9 +40,16 @@
 <section id="abstract">
     <h2>Project Abstract</h2>
     <p>
-        This project compares Logistic Regression, Random Forest and XGBoost models to forecast supplier loss events at the firm-year level.
-        On the hold-out test set, XGBoost achieved an AUC of 1.00 and captured 99 % of actual loss cases with minimal false alarms.
-        SHAP analysis reveals that the prior supplier count (<em>supplier_num_lag1</em>), current supplier count and the Country-Year context are the strongest drivers of risk.
+        Predicting the loss of key suppliers is critical for proactive supply chain management. In this project, we develop and analyze predictive 
+        models to identify whether a firm will lose a supplier, using machine learning techniques including Logistic Regression, Random Forest, 
+        and XGBoost. We construct a rich dataset of firm-level features (e.g. number of suppliers, financial metrics, region-year indicators) and 
+        train models to classify supplier loss events. Model performance is evaluated using Area Under the ROC Curve (AUC) and confusion matrices. 
+        Our results show that XGBoost achieves the highest predictive performance (AUC = 1.00) with excellent recall and precision, outperforming 
+        Logistic Regression (AUC = 0.97) and Random Forest (AUC = 0.85). We interpret the models using feature importance and SHAP (Shapley Additive 
+        Explanations) values to identify key predictors of supplier loss. Important features include the number of suppliers in the previous year 
+        (supplier_num_lag1), a country-year contextual indicator, and various financial indicators. The findings suggest that firms with a small 
+        supplier base and certain country/year conditions are more prone to supplier loss. This report discusses the implications of these results 
+        for supply chain risk management and the comparative advantages of each modeling approach.
     </p>
 
     <div class="stats">
