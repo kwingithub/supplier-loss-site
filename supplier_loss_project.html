@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Supplier Loss Prediction Model</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:#f7f7f7;color:#333;}
+    header{background:#660099;color:#fff;padding:60px 15px;text-align:center;}
+    header h1{margin:0;font-size:2.4em;font-weight:bold;}
+    header p{margin:10px 0 25px;font-size:1.1em;}
+    header a.btn{display:inline-block;background:#ffcc33;color:#000;padding:12px 28px;border-radius:4px;text-decoration:none;font-weight:bold;}
+    section{padding:60px 20px;max-width:1000px;margin:auto;background:#fff;margin-top:20px;border-radius:6px;}
+    h2{text-align:center;font-size:1.8em;margin-top:0;font-weight:bold;}
+    .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin:30px 0;}
+    .stat{background:#eee;border-radius:6px;padding:20px 30px;text-align:center;flex:1 1 220px;}
+    .stat h3{margin:0;font-size:2em;color:#660099;}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px;margin-top:25px;}
+    .gallery figure{margin:0;background:#fafafa;padding:10px;border:1px solid #ddd;border-radius:4px;text-align:center;}
+    .gallery img{max-width:100%;border-radius:4px;}
+    .timeline{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:25px;}
+    .step{flex:1 1 140px;background:#eee;padding:20px;border-radius:6px;text-align:center;}
+    .team{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-top:25px;}
+    .member{flex:1 1 200px;text-align:center;}
+    .member img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd;}
+    footer{background:#222;color:#ccc;padding:25px 15px;text-align:center;margin-top:40px;}
+    a{color:#660099;}
+    @media(max-width:600px){header h1{font-size:1.8em}}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Supplier Loss Prediction Model</h1>
+    <p>Machine‑learning‑driven early warning for supplier churn &nbsp;|&nbsp; AUC 1.00 · 99 % Recall · SHAP Explainability</p>
+    <a class="btn" href="Supplier_Loss_Report.pdf" target="_blank">下载 PDF 报告</a>
+</header>
+
+<section id="abstract">
+    <h2>项目摘要</h2>
+    <p>本项目利用 Logistic Regression、Random Forest 与 XGBoost，对企业供应商流失进行预测。XGBoost 模型在测试集上取得 AUC = 1.00，并通过 SHAP 解释关键影响因素：上一年度供应商数量 (<em>supplier_num_lag1</em>)、当前供应商数量以及 Country‑Year 宏观环境是最重要的预测指标。</p>
+
+    <div class="stats">
+        <div class="stat"><h3>1.00</h3><p>ROC‑AUC (XGB)</p></div>
+        <div class="stat"><h3>99 %</h3><p>召回率</p></div>
+        <div class="stat"><h3>97 %</h3><p>精确率</p></div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>关键图表</h2>
+    <div class="gallery">
+        <figure>
+            <img src="ROC_Comparison.png" alt="Figure 1 ROC 曲线对比">
+            <figcaption>Figure 1 ROC 曲线</figcaption>
+        </figure>
+        <figure>
+            <img src="XGBoost_Confusion_Matrix.png" alt="Figure 2 XGBoost 混淆矩阵">
+            <figcaption>Figure 2 混淆矩阵</figcaption>
+        </figure>
+        <figure>
+            <img src="RF_Feature_Importance.png" alt="Figure 3 随机森林特征重要性">
+            <figcaption>Figure 3 RF 特征重要性</figcaption>
+        </figure>
+        <figure>
+            <img src="XGB_Feature_Importance.png" alt="Figure 4 XGBoost 特征重要性">
+            <figcaption>Figure 4 XGB 特征重要性</figcaption>
+        </figure>
+        <figure>
+            <img src="XGB_SHAP_Summary.png" alt="Figure 5 SHAP Summary">
+            <figcaption>Figure 5 SHAP Summary</figcaption>
+        </figure>
+    </div>
+</section>
+
+<section id="method">
+    <h2>方法流程</h2>
+    <div class="timeline">
+        <div class="step">数据收集</div>
+        <div class="step">清洗与特征工程</div>
+        <div class="step">模型训练</div>
+        <div class="step">性能评估</div>
+        <div class="step">SHAP 解释</div>
+    </div>
+</section>
+
+<section id="team">
+    <h2>团队成员</h2>
+    <div class="team">
+        <div class="member">
+            <img src="avatar1.png" alt="Yichun Lu">
+            <p>Yichun Lu<br>224030211</p>
+        </div>
+        <div class="member">
+            <img src="avatar2.png" alt="Linwen Wei">
+            <p>Linwen Wei<br>224030194</p>
+        </div>
+        <div class="member">
+            <img src="avatar3.png" alt="Kexin Fan">
+            <p>Kexin Fan<br>224030222</p>
+        </div>
+        <div class="member">
+            <img src="avatar4.png" alt="Kewei Wu">
+            <p>Kewei Wu<br>224030208</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Supplier Loss Prediction Project | The Chinese University of Hong Kong, Shenzhen</p>
+    <p>查看代码：<a href="https://github.com/your‑repo" target="_blank">GitHub Repository</a></p>
+</footer>
+
+</body>
+</html>
