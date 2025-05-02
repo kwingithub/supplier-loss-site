@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Supplier Loss Prediction Model</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:#f7f7f7;color:#333;}
+    header{background:#660099;color:#fff;padding:60px 15px;text-align:center;}
+    header h1{margin:0;font-size:2.4em;font-weight:bold;}
+    header p{margin:10px 0 25px;font-size:1.1em;}
+    header a.btn{display:inline-block;background:#ffcc33;color:#000;padding:12px 28px;border-radius:4px;text-decoration:none;font-weight:bold;}
+    section{padding:60px 20px;max-width:1000px;margin:auto;background:#fff;margin-top:20px;border-radius:6px;}
+    h2{text-align:center;font-size:1.8em;margin-top:0;font-weight:bold;}
+    .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin:30px 0;}
+    .stat{background:#eee;border-radius:6px;padding:20px 30px;text-align:center;flex:1 1 220px;}
+    .stat h3{margin:0;font-size:2em;color:#660099;}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px;margin-top:25px;}
+    .gallery figure{margin:0;background:#fafafa;padding:10px;border:1px solid #ddd;border-radius:4px;text-align:center;}
+    .gallery img{max-width:100%;border-radius:4px;}
+    .gallery .figdesc{font-size:0.9em;color:#555;margin-top:4px;}
+    .timeline{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:25px;}
+    .step{flex:1 1 140px;background:#eee;padding:20px;border-radius:6px;text-align:center;}
+    .team{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-top:25px;}
+    .member{flex:1 1 200px;text-align:center;}
+    .member img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd;}
+    footer{background:#222;color:#ccc;padding:25px 15px;text-align:center;margin-top:40px;}
+    a{color:#660099;}
+    @media(max-width:600px){header h1{font-size:1.8em}}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Supplier Loss Prediction Model</h1>
+    <p>Machine-learning-based early warning system for supplier churn &nbsp;|&nbsp; AUC 1.00 · 99 % Recall · SHAP-driven insights</p>
+    <a class="btn" href="Supplier_Loss_Report.pdf" target="_blank">Download PDF Report</a>
+</header>
+
+<section id="abstract">
+    <h2>Project Abstract</h2>
+    <p>
+        This project compares Logistic Regression, Random Forest and XGBoost models to forecast supplier loss events at the firm-year level.
+        On the hold-out test set, XGBoost achieved an AUC of 1.00 and captured 99 % of actual loss cases with minimal false alarms.
+        SHAP analysis reveals that the prior supplier count (<em>supplier_num_lag1</em>), current supplier count and the Country-Year context are the strongest drivers of risk.
+    </p>
+
+    <div class="stats">
+        <div class="stat"><h3>1.00</h3><p>ROC-AUC</p></div>
+        <div class="stat"><h3>99 %</h3><p>Recall</p></div>
+        <div class="stat"><h3>97 %</h3><p>Precision</p></div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Key Figures</h2>
+    <div class="gallery">
+        <figure>
+            <img src="ROC_Comparison.png" alt="ROC Curve Comparison">
+            <figcaption>Figure 1 – ROC Curve Comparison</figcaption>
+            <p class="figdesc">XGBoost (green) dominates other models by hugging the top-left corner, yielding a perfect AUC of 1.00 and illustrating the best trade-off between true-positive and false-positive rates.</p>
+        </figure>
+
+        <figure>
+            <img src="XGBoost_Confusion_Matrix.png" alt="XGBoost Confusion Matrix">
+            <figcaption>Figure 2 – XGBoost Confusion Matrix</figcaption>
+            <p class="figdesc">The matrix shows that 7 318 of 7 360 actual loss events were correctly identified, with only 42 false negatives and 237 false positives, confirming excellent recall and precision.</p>
+        </figure>
+
+        <figure>
+            <img src="RF_Feature_Importance.png" alt="Random Forest Feature Importance">
+            <figcaption>Figure 3 – Random Forest Feature Importance</figcaption>
+            <p class="figdesc">Random Forest ranks <em>supplier_num_lag1</em> as the dominant predictor, followed by current supplier count and the Country-Year dummy variables, highlighting their impact on loss probability.</p>
+        </figure>
+
+        <figure>
+            <img src="XGB_Feature_Importance.png" alt="XGBoost Feature Importance">
+            <figcaption>Figure 4 – XGBoost Feature Importance</figcaption>
+            <p class="figdesc">XGBoost confirms the primacy of supplier-count features and macro context, while also elevating financial leverage and asset-growth indicators as secondary drivers of supplier attrition.</p>
+        </figure>
+
+        <figure>
+            <img src="XGB_SHAP_Summary.png" alt="SHAP Summary Plot">
+            <figcaption>Figure 5 – SHAP Summary Plot</figcaption>
+            <p class="figdesc">Low current supplier count (blue) and high prior count (red) push predictions toward the loss class, whereas robust financial metrics pull risk downward — offering interpretable insights for managers.</p>
+        </figure>
+    </div>
+</section>
+
+<section id="method">
+    <h2>Methodology Flow</h2>
+    <div class="timeline">
+        <div class="step">Data Collection</div>
+        <div class="step">Cleaning &amp; Feature Engineering</div>
+        <div class="step">Model Training</div>
+        <div class="step">Performance Evaluation</div>
+        <div class="step">SHAP Explanation</div>
+    </div>
+</section>
+
+<section id="team">
+    <h2>Project Team</h2>
+    <div class="team">
+        <div class="member">
+            <img src="YL.png" alt="YL avatar">
+            <p>Yichun Lu<br><small>ID 224030211</small></p>
+        </div>
+        <div class="member">
+            <img src="KW.png" alt="KW avatar">
+            <p>Kewei Wu<br><small>ID 224030208</small></p>
+        </div>
+        <div class="member">
+            <img src="KF.png" alt="KF avatar">
+            <p>Kexin Fan<br><small>ID 224030222</small></p>
+        </div>
+        <div class="member">
+            <img src="LW.png" alt="LW avatar">
+            <p>Linwen Wei<br><small>ID 224030194</small></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Supplier Loss Prediction Project | The Chinese University of Hong Kong, Shenzhen</p>
+</footer>
+
+</body>
+</html>
